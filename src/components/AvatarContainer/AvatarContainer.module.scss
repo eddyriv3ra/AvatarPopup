@@ -1,0 +1,28 @@
+.hoverEffect {
+  &:hover {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.3rem var(--color-primary);
+    opacity: 80%;
+    cursor: pointer;
+  }
+
+  &:focus {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.3rem var(--color-primary);
+    opacity: 80%;
+    cursor: pointer;
+  }
+}
+
+.removeCursor {
+  cursor: auto;
+}
+
+.avatarSelected {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.3rem var(--color-avatar-selected);
+
+  &:focus {
+    border-radius: 50%;
+  }
+}

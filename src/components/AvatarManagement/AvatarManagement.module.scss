@@ -1,0 +1,16 @@
+.avatarContainer {
+  height: 6rem;
+  width: 6rem;
+
+  &:hover {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.1rem var(--color-primary);
+    cursor: pointer;
+  }
+
+  &:focus {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.1rem var(--color-primary);
+    cursor: pointer;
+  }
+}
