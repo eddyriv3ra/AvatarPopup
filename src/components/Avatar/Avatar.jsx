@@ -9,6 +9,7 @@ const Avatar = ({ src, onClick, loading }) => {
 
   return (
     <div
+      data-testid="avatar-img"
       className={`${styles.avatar} ${loading ? styles.loader : ""}`}
       onClick={handleOnclick}
     >

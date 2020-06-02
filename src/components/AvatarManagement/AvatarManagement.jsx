@@ -22,14 +22,13 @@ const AvatarManagement = ({ avatarSelected, avatarList, onChangeAvatar }) => {
   };
 
   const handleOnSelectedAvatar = (id) => {
-    debugger;
     onChangeAvatar(id);
     setLastAvatarClicked(id);
   };
 
   return (
     <Fragment>
-      <div className={styles.avatarContainer}>
+      <div data-testid="avatarMgmt" className={styles.avatarContainer}>
         <Avatar
           src={avatarSelected.src}
           id={avatarSelected.id}

@@ -23,7 +23,12 @@ const PopupContainer = ({ children, showPopup, onClose }) => {
 
   return (
     shouldRender && (
-      <div ref={ref} className={classnames} onAnimationEnd={onAnimationEnd}>
+      <div
+        data-testid="popupContainer"
+        ref={ref}
+        className={classnames}
+        onAnimationEnd={onAnimationEnd}
+      >
         {children}
       </div>
     )

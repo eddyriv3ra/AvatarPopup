@@ -11,7 +11,7 @@ const AvatarList = ({ onClick, avatarList, avatarLoading, avatarSelected }) => {
       <PopupTitle title="Selecciona el avatar" />
       <ul>
         {avatarList.map(({ id, src }) => (
-          <li className={styles.listStyle} key={id}>
+          <li className={styles.listStyle} key={id} data-testid="list-items">
             <AvatarContainer
               selectedId={selectedId}
               id={id}
