@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
 import Avatar from "../Avatar";
 import PopupContainer from "../PopupContainer";
 import AvatarList from "../AvatarList";
@@ -7,9 +7,15 @@ import styles from "./AvatarManagement.module.scss";
 const AvatarManagement = ({ avatarSelected, avatarList, onChangeAvatar }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [lastAvatarClicked, setLastAvatarClicked] = useState(null);
+  const mainAvatar = useRef();
 
-  const handleOnClose = () => {
-    setShowPopup(false);
+  const handleOnClose = (event) => {
+    if (event && mainAvatar.current.contains(event.target)) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      setShowPopup(false);
+    }
   };
 
   useEffect(() => {
@@ -18,7 +24,7 @@ const AvatarManagement = ({ avatarSelected, avatarList, onChangeAvatar }) => {
   }, [avatarSelected]);
 
   const handleClickOnSelectedAvatar = () => {
-    setShowPopup(true);
+    setShowPopup(!showPopup);
   };
 
   const handleOnSelectedAvatar = (id) => {
@@ -28,7 +34,11 @@ const AvatarManagement = ({ avatarSelected, avatarList, onChangeAvatar }) => {
 
   return (
     <Fragment>
-      <div data-testid="avatarMgmt" className={styles.avatarContainer}>
+      <div
+        data-testid="avatarMgmt"
+        className={styles.avatarContainer}
+        ref={mainAvatar}
+      >
         <Avatar
           src={avatarSelected.src}
           id={avatarSelected.id}
